@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vishwas Mutthe | Data Analyst Portfolio</title>
+<meta name="description" content="Data analyst specializing in SQL, Python, Tableau and Power BI.">
+<style>
+:root{--bg:#fff6f1;--card:#fff;--text:#1b2a4a;--muted:#5d6b85;--accent:#e8732a;--line:#f4dccd;--bg2:#ffe6d6;--c1:#f9c9ad;--c2:#fde3d3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a2b;--card:#1d2540;--text:#f3efe9;--muted:#a7b0c6;--accent:#f08a46;--line:#2c3656;--bg2:#1f1b33;--c1:#4a3550;--c2:#2a2740}}
+:root[data-theme="dark"]{--bg:#141a2b;--card:#1d2540;--text:#f3efe9;--muted:#a7b0c6;--accent:#f08a46;--line:#2c3656;--bg2:#1f1b33;--c1:#4a3550;--c2:#2a2740}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%) fixed;color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav b{font-size:17px}nav div a{margin-left:18px;color:var(--muted);font-size:14px}
+section{padding:56px 0}
+h2{font-size:26px;margin:0 0 24px}
+.hero{padding:80px 0 40px;position:relative;isolation:isolate}.hero::before{content:"";position:absolute;right:-40px;top:30px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,var(--c1) 0 52%,var(--c2) 53%);z-index:-1;opacity:.9}.hero::after{content:"📈";position:absolute;right:130px;top:170px;font-size:72px;z-index:-1}@media(max-width:760px){.hero::before{width:220px;height:220px;right:-70px;top:10px;opacity:.6}.hero::after{display:none}}
+.hero small{color:var(--accent);font-weight:600}
+.hero h1{font-size:clamp(36px,7vw,64px);line-height:1.1;margin:12px 0 16px}.hero h1 span{color:var(--accent)}.hero small{display:inline-block;background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:99px}
+.hero p{color:var(--muted);max-width:560px}
+.btn{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600;margin:8px 8px 0 0}
+.btn.o{background:none;border:1px solid var(--line);color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:36px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.stats .card b{font-size:28px;color:var(--accent);display:block}
+.stats .card span{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card h3{margin:0 0 6px;font-size:18px}.card p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.tag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:var(--bg);border:1px solid var(--line);margin:0 6px 6px 0}
+.bar{margin-bottom:14px}.bar div{display:flex;justify-content:space-between;font-size:14px}
+.bar i{display:block;height:8px;border-radius:99px;background:var(--line);margin-top:5px;overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:var(--w);background:var(--accent)}
+.tl{border-left:2px solid var(--line);padding-left:18px}.tl div{margin-bottom:22px}.tl small{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px;text-align:center}
+#bot{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9}
+#bot button.t{width:52px;height:52px;border-radius:50%;border:0;background:var(--accent);color:#fff;font-size:22px;cursor:pointer}
+#box{display:none;width:min(330px,calc(100vw - 32px));height:400px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;flex-direction:column;overflow:hidden}
+#box.open{display:flex}
+#msgs{flex:1;overflow:auto;padding:12px;font-size:14px}
+#msgs p{margin:0 0 8px;padding:8px 12px;border-radius:12px;max-width:85%;background:var(--bg)}
+#msgs p.u{background:var(--accent);color:#fff;margin-left:auto}
+#chips{padding:0 12px 8px}#chips button{font-size:12px;border:1px solid var(--line);background:none;color:var(--text);border-radius:99px;padding:4px 10px;margin:0 4px 4px 0;cursor:pointer}
+#f{display:flex;border-top:1px solid var(--line)}
+#f input{flex:1;border:0;padding:12px;background:none;color:var(--text);font-size:14px;outline:none}
+#f button{border:0;background:none;color:var(--accent);font-weight:600;padding:0 14px;cursor:pointer}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Vishwas Mutthe</b><div><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#exp">Experience</a><a href="#contact">Contact</a></div></div></nav>
+
+<main class="wrap">
+<header class="hero">
+<small>Data Analyst · Nashik, India</small>
+<h1>Hey! I Am <span>Vishwas Mutthe</span></h1>
+<p>I turn raw data into decisions. AI &amp; Data Science engineering graduate skilled in SQL, Python, Power BI, Tableau and Advanced Excel. I build dashboards, KPI reports and clean analyses that support business decisions.</p>
+<a class="btn" href="#projects">View projects</a><a class="btn o" href="#contact">Get in touch</a>
+<div class="stats">
+<div class="card"><b>2</b><span>Analyst internships</span></div>
+<div class="card"><b>100K+</b><span>Records analysed</span></div>
+<div class="card"><b>60+</b><span>SQL queries written</span></div>
+<div class="card"><b>8.06</b><span>CGPA / 10</span></div>
+</div>
+</header>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="card">
+<span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Tableau</span><span class="tag">Advanced Excel</span><span class="tag">EDA</span><span class="tag">Data Cleaning</span><span class="tag">Data Validation</span><span class="tag">Data Modeling</span><span class="tag">ETL</span><span class="tag">KPI / MIS Reporting</span><span class="tag">Statistical Analysis</span><span class="tag">Dashboard Development</span><span class="tag">Generative AI</span><span class="tag">Prompt Engineering</span>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card"><h3>Insurance Claims Analysis</h3><p>End-to-end analysis of 10K+ insurance records: cleaning, EDA and visualization in Python, 30+ SQL queries (joins, CTEs, window functions) and a Power BI dashboard tracking premium revenue, claims, policy performance and customer demographics.</p><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Excel</span></div>
+<div class="card"><h3>Housing Market Analysis</h3><p>Analysed 100K+ housing records to find pricing trends and regional sales performance. 30+ SQL queries plus a 3-page Power BI dashboard with DAX measures, KPIs, slicers and drill-through reports.</p><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+<div class="card"><h3>AI Audio Deepfake Detection</h3><p>Deep learning system that detects AI-generated audio. Extracted MFCC and Mel Spectrogram features, did preprocessing, EDA and feature engineering, and visualized model metrics and classification results.</p><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Librosa</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
+</div>
+</section>
+
+<section id="exp">
+<h2>Experience &amp; Education</h2>
+<div class="tl">
+<div><b>Data Analyst Intern</b> · Bluestock Fintech (Remote)<br><small>May 2026 – Jun 2026</small><br>Ran SQL queries and cleaning routines on large financial datasets, built Power BI dashboards and KPI reports, and completed EDA mini-projects on financial performance.</div>
+<div><b>Data Analyst Intern</b> · LetsGrowMore (Remote)<br><small>Feb 2026 – Apr 2026</small><br>Cleaned and explored 10+ raw datasets with Python and Excel (25% better data accuracy) and built interactive Power BI dashboards for executive KPI reporting.</div>
+<div><b>B.E. Artificial Intelligence &amp; Data Science</b> · Nashik, India<br><small>Nov 2022 – Jun 2026 · CGPA 8.06/10</small></div>
+<div><b>Certifications</b><br>Master Data Analysis (Python, SQL, Power BI, Tableau, Excel, AWS &amp; Gen AI) – Udemy<br>Data Analytics Training – Besant Technologies</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="card"><p>Looking for a Data Analyst role. Let's talk.</p>
+<a class="btn" href="mailto:vishwasmutthepatil@gmail.com">vishwasmutthepatil@gmail.com</a><a class="btn o" href="tel:+918010295802">+91-8010295802</a><a class="btn o" href="#">LinkedIn</a><a class="btn o" href="#">GitHub</a></div>
+</section>
+</main>
+<footer>© <span id="yr"></span> Vishwas Mutthe · Nashik, India</footer>
+
+<div id="bot">
+<div id="box"><div id="msgs"></div><div id="chips"></div>
+<div id="f"><input id="in" placeholder="Ask about my work..." autocomplete="off"><button id="go">Send</button></div></div>
+<button class="t" id="tg" aria-label="Open chat">💬</button>
+</div>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+var KB=[
+{k:["skill","tool","tech","stack"],a:"SQL, MySQL, Python, Power BI (DAX, Power Query), Tableau and Advanced Excel, plus EDA, ETL, data cleaning and KPI reporting."},
+{k:["project","dashboard","portfolio"],a:"Three projects: Insurance Claims Analysis, Housing Market Analysis (both SQL, Python, Power BI) and AI Audio Deepfake Detection (Python, TensorFlow, Librosa)."},
+{k:["experience","intern","job","work"],a:"Data Analyst Intern at Bluestock Fintech (May-Jun 2026) and LetsGrowMore (Feb-Apr 2026), both remote."},
+{k:["education","degree","college","cgpa","study"],a:"B.E. in Artificial Intelligence and Data Science, Nov 2022 - Jun 2026, CGPA 8.06/10."},
+{k:["contact","email","hire","reach","phone","available"],a:"Email vishwasmutthepatil@gmail.com or call +91-8010295802. He is looking for a Data Analyst role."},
+{k:["where","location","based","nashik"],a:"Vishwas is based in Nashik, India."}
+];
+var box=document.getElementById("box"),msgs=document.getElementById("msgs"),inp=document.getElementById("in"),chips=document.getElementById("chips");
+function add(t,u){var p=document.createElement("p");p.textContent=t;if(u)p.className="u";msgs.appendChild(p);msgs.scrollTop=msgs.scrollHeight}
+function ask(q){add(q,1);var s=q.toLowerCase(),r="I can tell you about my skills, projects, experience or how to contact me.";
+for(var i=0;i<KB.length;i++){if(KB[i].k.some(function(w){return s.indexOf(w)>-1})){r=KB[i].a;break}}
+setTimeout(function(){add(r)},300)}
+["Skills","Projects","Experience","Contact"].forEach(function(c){var b=document.createElement("button");b.textContent=c;b.onclick=function(){ask(c)};chips.appendChild(b)});
+add("Hi! I am Vishwas's portfolio bot. Ask me about his work.");
+document.getElementById("tg").onclick=function(){box.classList.toggle("open")};
+function send(){var v=inp.value.trim();if(v){ask(v);inp.value=""}}
+document.getElementById("go").onclick=send;
+inp.addEventListener("keydown",function(e){if(e.key==="Enter")send()});
+</script>
+</body>
+</html>
